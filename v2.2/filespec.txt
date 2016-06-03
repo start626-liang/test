@@ -1,0 +1,41 @@
+1.整合三大框架，hibernate框架整合进spring框架
+2.实现添加功能
+3.mysql数据库，使用		HibernateTemplate	技术
+
+数据库 how2java
+创建了三个表，data,data_java,data_sql,data_other,  message
+
+	表data
+	类型：int键, tinytext, varchar, mediumtext, TIMESTAMP(timestamp)
+		create table data (
+		id int not null auto_increment,
+		primary key (id),
+		type varchar(30), 
+		name tinytext, 
+		content mediumtext, 
+		date TIMESTAMP)default charset=utf8;
+		
+	表data_java,data_sql,data_other
+	类型：int键, tinytext, varchar, mediumtext, TIMESTAMP(timestamp)
+		create table (data_java,data_sql,data_other) (
+		id int not null auto_increment,
+		primary key (id),
+		name tinytext, 
+		content mediumtext, 
+		date TIMESTAMP)default charset=utf8;
+	
+	表message
+	类型：int键,  varchar, TIMESTAMP(timestamp)
+	create table message (
+		id int not null auto_increment,
+		primary key (id),
+		name varchar(30), 
+		content varchar(1000), 
+		date TIMESTAMP)default charset=utf8;
+   
+4. 页面：
+	1.index转发页面
+	2.主页面，有添加功能,显示功能
+	3.留言板界面，有添加功能,显示功能
+	
+5.使用了bootstrap框架开发前端页面
