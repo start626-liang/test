@@ -1,0 +1,7 @@
+<web-app>
+   <session-config>
+  <session-timeout>20</session-timeout>
+  <!-- 连接时间为20分钟 -->
+  </session-config>	
+  
+</web-app>
