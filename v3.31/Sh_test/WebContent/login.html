@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+	*{padding:0;margin:0;}
+	.main{margin:30px auto;width:180px;}
+</style>
+<script>
+
+function val(){
+	var pattern = new RegExp("^[A-Za-z0-9]+$","i");
+	var str1=document.getElementById("name").value;
+	
+	if(pattern.test(str1)){
+		//alert("OK");
+		document.getElementById("namespan").innerHTML="";
+		return true;
+	}
+	else{
+		document.getElementById("namespan").innerHTML="<span class='note'>用户名必须是字母与数字</span>";
+		return false;
+	}
+	
+}
+
+</script>
+</head>
+<body>
+<div class="main">
+<form action="login" method="post">
+	用户:<input type="text" id="name" onBlur="val()" name="name" required> <br> <span id="namespan"></span><br>
+	密码:<input type="password"  name="password" required>
+	<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="登录">
+	&nbsp;&nbsp;&nbsp;&nbsp;<button  onclick="window.location.href='http://115.28.188.77/a/'">返回</button>
+</form>
+</div>
+
+
+
+
+</body>
+</html>

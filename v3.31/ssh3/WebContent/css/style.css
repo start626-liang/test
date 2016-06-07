@@ -1,0 +1,29 @@
+/*css document*/
+@charset "utf-8";
+
+html,body,div,h1,h2,h3,h4,h5,h6,hr, p, a, samp, strong, blockquote, dl, dt, dd, ul, ol, li, pre{margin:0;padding:0;}
+html{color:#000;font-family:"Microsoft YaHei",simsun,Arial,sans-serif,Mingliu,Verdana,Helvetica,Lucida;font-size:14px;}
+body,code,form,fieldset,legend,input,button,textarea,blockquote{font-family:"Microsoft YaHei",simsun,Arial,sans-serif,Mingliu,Verdana,Helvetica,Lucida;font-size: 14px;}
+fieldset,img{border:0;}
+a{text-decoration:none; color:#456161; outline:none;font-size: 14px;}/*此处待添加默认链接颜色*/
+a:hover {text-decoration: none;color: #6AABDB;}
+ul,li{list-style:none;}
+input,button,select,option{font-family:inherit; font-size:inherit;font-style:inherit;font-weight:inherit;}
+input,button,select{*font-size:100%;}
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+img{max-width:100%;}
+
+.clearfix {
+	*zoom:1;
+}
+.clearfix:after {
+	content: "\200B";
+	display: block;
+	clear: both;
+	height: 0;
+}
+
+/*public css*/
+::selection {color: #fff;background-color: #94D1D3;}
+.bg-color{background:#EEF7FC;}
