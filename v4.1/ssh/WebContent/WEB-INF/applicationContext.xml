@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+   http://www.springframework.org/schema/tx 
+   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+   http://www.springframework.org/schema/context      
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+ 
+ 
+	<bean name="administrator" class="Administrator.Function">
+    	<property name="pdao" ref="pdao" />
+    	<property name="actionFunction" ref="actionFunction" />
+    </bean>
+ 
+ 
+	<bean name="dataActionBean" class="data.action.DataAction">
+    	<property name="pdao" ref="pdao" />
+    	<property name="actionFunction" ref="actionFunction" />
+    </bean>
+    
+    <bean name="messageActionBean" class="message.action.MessageAction">
+    	<property name="pdao" ref="pdao" />
+    	<property name="actionFunction" ref="actionFunction" />
+    </bean>
+    
+ 
+ 	<bean name="actionFunction" class="action.ActionFunction">
+    	<property name="pdao" ref="pdao" />
+    </bean>
+ 	
+ 	
+ 	
+ 
+ 
+ 
+	<bean name="pdao" class="dao.ProductDAO">
+        <property name="sessionFactory" ref="sf" />
+    </bean>
+
+	<bean name="sf"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<property name="mappingResources">
+			<list>
+				<value>pojo/Data.hbm.xml</value>
+				<value>pojo/Data.Backups.hbm.xml</value>
+				<value>pojo/Message.hbm.xml</value>
+				
+				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.show_sql=true
+				hbm2ddl.auto=update
+   			</value>
+		</property>
+	</bean>    
+        
+        
+    <bean name="ds"
+        class="com.mchange.v2.c3p0.ComboPooledDataSource">
+ 
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl"
+            value="jdbc:mysql://127.0.0.1:3306/how2java?characterEncoding=UTF-8" />
+        <property name="user" value="root" />
+        <property name="password" value="171023" />
+         
+        <!--连接池中保留的最小连接数。-->
+        <property name="minPoolSize" value="10" />
+        <!--连接池中保留的最大连接数。Default: 15 --> 
+         
+        <property name="maxPoolSize" value="100" />
+        <!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 --> 
+         
+        <property name="maxIdleTime" value="1800" />
+        <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 --> 
+         
+        <property name="acquireIncrement" value="3" />
+        <!--最大的Statements条数 -->
+        <property name="maxStatements" value="1000" />
+        <!--初始化10条连接 -->
+        <property name="initialPoolSize" value="10" />
+        <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 --> 
+        <property name="acquireRetryAttempts" value="30" />
+         
+        <!--每隔60秒发一次心跳信号到数据库，以保持连接的活性 -->
+        <property name="idleConnectionTestPeriod" value="60" />
+         
+    </bean>	    
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.how2java.pojo">
+	<class name="Product_other" table="data_other">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" />
+		<property name="content" />
+		<property name="date" />
+	</class>
+	
+</hibernate-mapping>

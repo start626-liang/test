@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+  
+	<constant name="struts.objectFactory" value="spring"/>
+  
+<!-- 
+	name：包的名称。必须配置
+	extends：要继承的包，后面配置的是被继承的包的名称。可选 
+-->
+	<package name="basicstruts" extends="struts-default">
+  		<interceptors>
+			<interceptor name="loginInterceptor" class="interceptor.LoginInterceptor" />
+		</interceptors>
+		
+		
+		
+		<action name="*Data" class="dataActionBean" method="{1}">
+	   
+	    <result name="add">/WEB-INF/data/addData.jsp</result>
+	    
+	    <result name="save">/WEB-INF/data/addData.jsp</result> 
+	     
+	    <result name="error">/WEB-INF/data/error.jsp</result> 
+	    
+	    <result name="show">/WEB-INF/data/showData.jsp</result> 
+	    
+	    <result name="edit">/WEB-INF/data/editData.jsp</result> 
+	    
+	    <result name="updata">/WEB-INF/data/showData.jsp</result> 
+    
+    <result name="find">/WEB-INF/data/findResultData.jsp</result>
+	</action>
+  
+  
+	<action name="*Message" class="messageActionBean" method="{1}">
+  		
+  		<result name="add">/WEB-INF/message/addMessage.jsp</result>
+  		
+  		<result name="error">/WEB-INF/message/error.jsp</result> 
+  		
+  		<result name="save">/WEB-INF/message/addMessage.jsp</result> 
+	</action>
+  
+  	<action name="*Admin" class="administrator" method="{1}">
+  		<result name="login">/login.jsp</result>
+  		
+  		<result name="success">/WEB-INF/administrator/success.jsp</result>
+	</action>
+  
+	
+ 	<action name="*Administrator" class="administrator" method="{1}">
+  		<interceptor-ref name="loginInterceptor" />
+		<interceptor-ref name="defaultStack" />	
+		
+		<result name="main">/WEB-INF/administrator/main.html</result>
+		
+  		<result name="exit">/login.jsp</result>
+  		
+  		<result name="message">/WEB-INF/administrator/messageList.jsp</result>
+  		<result name="editMessage">/WEB-INF/administrator/messageEdit.jsp</result>
+  		<result name="updateMessage">/WEB-INF/administrator/messageList.jsp</result>
+  		<result name="deleteMessage">/WEB-INF/administrator/messageList.jsp</result>
+  		
+  		
+  		<result name="datas">/WEB-INF/administrator/datas.jsp</result>
+  		<result name="data">/WEB-INF/administrator/dataList.jsp</result>
+  		<result name="editData">/WEB-INF/administrator/dataEdit.jsp</result>
+  		<result name="updateData">/WEB-INF/administrator/dataList.jsp</result>
+  		<result name="deleteData">/WEB-INF/administrator/dataList.jsp</result>
+  		
+  		<result name="error">/WEB-INF/administrator/error.jsp</result>
+	</action>
+
+</package>
+</struts>
